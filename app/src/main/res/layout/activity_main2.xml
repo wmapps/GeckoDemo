@@ -37,49 +37,17 @@
             android:onClick="reload"
             android:src="@drawable/ic_autorenew_black_24dp"/>
 
-        <ImageButton
-            android:id="@+id/main_navigation_home_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/main_navigation_home"
-            android:onClick="home"
-            android:src="@drawable/ic_home_black_24dp"/>
-
         <EditText
             android:id="@+id/main_address_edit_text"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:inputType="textUri"
             tools:ignore="LabelFor"/>
-
-        <ImageButton
-            android:id="@+id/main_navigation_settings_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/main_navigation_settings"
-            android:onClick="settings"
-            android:src="@drawable/ic_settings_black_24dp"/>
     </LinearLayout>
 
-    <LinearLayout
+    <org.mozilla.geckoview.GeckoView
+        android:id="@+id/main_gecko_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent"/>
 
-        <com.example.geckodemo.view.CustomGeckoView
-            android:id="@+id/main_gecko_webview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/main_debug_text"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="@dimen/activity_vertical_margin"
-            android:visibility="gone"/>
-
-    </LinearLayout>
 </LinearLayout>
