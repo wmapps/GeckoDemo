@@ -38,8 +38,16 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
     // Add GeckoView Implementations
-    x86Implementation "org.mozilla.geckoview:geckoview-${geckoviewChannel}-x86:${geckoviewVersion}"
-    x86_64Implementation "org.mozilla.geckoview:geckoview-${geckoviewChannel}-x86_64:${geckoviewVersion}"
-    armImplementation "org.mozilla.geckoview:geckoview-${geckoviewChannel}-armeabi-v7a:${geckoviewVersion}"
-    aarch64Implementation "org.mozilla.geckoview:geckoview-${geckoviewChannel}-arm64-v8a:${geckoviewVersion}"
+    x86Implementation("org.mozilla.geckoview:geckoview-${geckoviewChannel}-x86:${geckoviewVersion}", {
+        exclude group: 'com.android.support'
+    })
+    x86_64Implementation("org.mozilla.geckoview:geckoview-${geckoviewChannel}-x86_64:${geckoviewVersion}", {
+        exclude group: 'com.android.support'
+    })
+    armImplementation("org.mozilla.geckoview:geckoview-${geckoviewChannel}-armeabi-v7a:${geckoviewVersion}", {
+        exclude group: 'com.android.support'
+    })
+    aarch64Implementation("org.mozilla.geckoview:geckoview-${geckoviewChannel}-arm64-v8a:${geckoviewVersion}", {
+        exclude group: 'com.android.support'
+    })
 }
