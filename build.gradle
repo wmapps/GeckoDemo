@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.5.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -33,5 +33,5 @@ task clean(type: Delete) {
 ext {
     geckoviewChannel = "nightly"
     // geckoviewVersion = "65.0.20181119100115"
-    geckoviewVersion = "68.0.20190417093858"
+    geckoviewVersion = "71.0.20190910095613"
 }

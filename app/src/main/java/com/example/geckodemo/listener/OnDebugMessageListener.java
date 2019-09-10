@@ -1,6 +1,6 @@
 package com.example.geckodemo.listener;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Copyright (c) 2018, WM-Apps

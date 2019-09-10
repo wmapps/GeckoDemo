@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Patterns;
@@ -17,6 +15,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.geckodemo.R;
 import com.example.geckodemo.listener.OnDebugMessageListener;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
         if (homePage != null && Patterns.WEB_URL.matcher(homePage).matches()) {
             mWebView.loadUrl(homePage);
         } else {
-            homePage = "https://";
+            homePage = "about:buildconfig";
             mPreferences.edit().putString(SettingsActivity.PREF_HOME_PAGE, homePage).apply();
             Toast.makeText(this, homePage + " is not valid", Toast.LENGTH_SHORT).show();
         }
