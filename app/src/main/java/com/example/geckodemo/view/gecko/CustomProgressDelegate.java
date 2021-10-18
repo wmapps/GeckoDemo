@@ -42,7 +42,7 @@ public class CustomProgressDelegate implements GeckoSession.ProgressDelegate {
         postMessage("onSecurityChange() called with: session = [" + session + "], securityInfo = [" + securityInfo + "]");
     }
 
-    public void setOnDebugMessageListener(OnDebugMessageListener listener) {
+    public void setOnDebugMessageListener(@Nullable OnDebugMessageListener listener) {
         mOnDebugMessageListener = listener;
     }
 

@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
     private CustomGeckoView mWebView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
@@ -81,19 +82,19 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
         mDebugOutput.setVisibility(mPreferences.getBoolean("show_debug", false) ? View.VISIBLE : View.GONE);
     }
 
-    public void goBack(View view) {
+    public void goBack(@NonNull View view) {
         mWebView.goBack();
     }
 
-    public void goForward(View view) {
+    public void goForward(@NonNull View view) {
         mWebView.goForward();
     }
 
-    public void reload(View view) {
+    public void reload(@NonNull View view) {
         mWebView.reload();
     }
 
-    public void home(View view) {
+    public void home(@Nullable View view) {
         String homePage = mPreferences.getString(SettingsActivity.PREF_HOME_PAGE, null);
         if (homePage != null && Patterns.WEB_URL.matcher(homePage).matches()) {
             mWebView.loadUrl(homePage);
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
         mAddressInput.setSelection(mAddressInput.getText().length());
     }
 
-    public void settings(View view) {
+    public void settings(@NonNull View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }
 

@@ -24,11 +24,11 @@ public class CustomGeckoView extends GeckoView {
     private CustomNavigationDelegate mNavigationDelegate;
     private CustomProgressDelegate mProgressDelegate;
 
-    public CustomGeckoView(Context context) {
+    public CustomGeckoView(@NonNull Context context) {
         super(context);
     }
 
-    public CustomGeckoView(Context context, AttributeSet attrs) {
+    public CustomGeckoView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 

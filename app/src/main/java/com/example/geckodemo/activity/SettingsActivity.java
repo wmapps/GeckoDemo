@@ -8,6 +8,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.geckodemo.R;
@@ -17,13 +18,14 @@ import com.example.geckodemo.R;
  * <p/>
  * Created on 21.11.18.
  */
+@SuppressWarnings("deprecation")
 public class SettingsActivity extends PreferenceActivity {
 
     public static final String PREF_HOME_PAGE = "home_page";
     public static final String PREF_USER_AGENT = "user_agent";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     }
@@ -31,7 +33,7 @@ public class SettingsActivity extends PreferenceActivity {
     public static class SettingsFragment extends PreferenceFragment
             implements SharedPreferences.OnSharedPreferenceChangeListener {
         @Override
-        public void onCreate(final Bundle savedInstanceState) {
+        public void onCreate(final @Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
             getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
@@ -49,7 +51,7 @@ public class SettingsActivity extends PreferenceActivity {
         }
 
         @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        public void onSharedPreferenceChanged(@NonNull SharedPreferences sharedPreferences, @Nullable String key) {
             final Preference preference = findPreference(key);
             updatePreference(sharedPreferences, preference);
         }

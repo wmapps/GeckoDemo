@@ -1,13 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.android.tools.build:gradle:3.6.4'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,7 +16,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         // Add Mozilla's Maven repository
         maven {
             url "https://maven.mozilla.org/maven2/"
@@ -31,7 +30,8 @@ task clean(type: Delete) {
 
 // Version control for GeckoView
 ext {
-    geckoviewChannel = "nightly"
-    // geckoviewVersion = "65.0.20181119100115"
-    geckoviewVersion = "71.0.20191014095234"
+    ndk = '23.0.7599858'
+    geckoviewChannel = "nightly" // Use nightly builds, if needed - Enable it app module
+    geckoviewVersion = "79.0.20200813192915" // https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/
+
 }
