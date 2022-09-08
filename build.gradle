@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:7.2.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -30,8 +30,9 @@ task clean(type: Delete) {
 
 // Version control for GeckoView
 ext {
-    ndk = '23.0.7599858'
+    //ndk = '23.0.7599858'
+    ndk = '22.1.7171670'
     geckoviewChannel = "nightly" // Use nightly builds, if needed - Enable it app module
-    geckoviewVersion = "79.0.20200813192915" // https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/
-
+    //geckoviewVersion = "79.0.20200813192915" // https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/
+    geckoviewVersion = "104.0.20220902153754" // https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/
 }

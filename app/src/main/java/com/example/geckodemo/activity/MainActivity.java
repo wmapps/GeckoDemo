@@ -26,6 +26,7 @@ import com.example.geckodemo.listener.OnUrlChangedListener;
 import com.example.geckodemo.view.CustomGeckoView;
 
 import org.mozilla.geckoview.GeckoRuntime;
+import org.mozilla.geckoview.GeckoRuntimeSettings;
 import org.mozilla.geckoview.GeckoSession;
 
 /**
@@ -47,7 +48,14 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
 
         setContentView(R.layout.activity_main);
 
-        final GeckoRuntime runtime = GeckoRuntime.create(this);
+        final GeckoRuntimeSettings.Builder builder = new GeckoRuntimeSettings.Builder();
+        builder.aboutConfigEnabled(true);
+        builder.consoleOutput(true);
+        builder.remoteDebuggingEnabled(true);
+        builder.javaScriptEnabled(true);
+        builder.allowInsecureConnections(GeckoRuntimeSettings.ALLOW_ALL);
+
+        final GeckoRuntime runtime = GeckoRuntime.create(this, builder.build());
         final GeckoSession session = new GeckoSession();
         session.open(runtime);
 
@@ -80,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements OnDebugMessageLis
         home(null);
         mWebView.setUserAgent(mPreferences.getString(SettingsActivity.PREF_USER_AGENT, null));
         mDebugOutput.setVisibility(mPreferences.getBoolean("show_debug", false) ? View.VISIBLE : View.GONE);
+
+        mWebView.loadUrl("https://static.vg.no/vgtv/public-display/ferrule/category/3");
     }
 
     public void goBack(@NonNull View view) {
